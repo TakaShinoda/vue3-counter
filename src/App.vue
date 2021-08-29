@@ -4,18 +4,23 @@
   <BaseButton @onClick="plusOne">+</BaseButton>
   <BaseButton @onClick="minusOne">-</BaseButton>
   <br />
-  <input v-model="inputCount" type="number" />
+  <!-- <input v-model="inputCount" type="number" /> -->
+
+  <!-- カスタム修飾子 -->
+  <NumberInput v-model.numberOnly="inputCount" />
   <BaseButton @onClick="insertCount">insert</BaseButton>
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
 import BaseButton from './components/BaseButton.vue'
+import NumberInput from './components/NumberInput.vue'
 
 export default {
   components: {
     TheHeader,
-    BaseButton
+    BaseButton,
+    NumberInput
   },
   data() {
     return {
@@ -31,6 +36,7 @@ export default {
       this.count--
     },
     insertCount() {
+      // v-modelでemitで受け取った値を使っている
       this.count = this.inputCount
     }
   }
