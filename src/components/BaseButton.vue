@@ -1,5 +1,5 @@
 <template>
-    <button @click="handleClick">ボタン</button>
+    <button @click="handleClick"><slot /></button>
 </template>
 
 <script>
@@ -7,7 +7,8 @@ export default {
     name: 'BaseButton',
     methods: {
         handleClick() {
-            alert('Hello!')
+            // emit第一引数: イベント名を文字列, 第二引数: 親に渡したい値
+            this.$emit('onClick')
         }
     }
 }
