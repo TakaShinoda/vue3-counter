@@ -1,13 +1,16 @@
 <template>
-<TheHeader :text="Math.floor(Math.random() * 10) % 2 === 0 ? 'even' : 'odd'" />
+  <TheHeader :text="Math.floor(Math.random() * 10) % 2 === 0 ? 'even' : 'odd'" />
+  <BaseButton />
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
+import BaseButton from './components/BaseButton.vue'
 
 export default {
   components: {
-    TheHeader
+    TheHeader,
+    BaseButton
   }
 }
 </script>
