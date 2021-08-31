@@ -1,3 +1,3 @@
 # vue3-counter
 
-- vue3 + vite でカウンター
+- vue3 + vite でカウンターやその他色々
