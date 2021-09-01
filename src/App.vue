@@ -12,18 +12,25 @@
   <!-- カスタム修飾子 -->
   <NumberInput v-model.numberOnly="inputCount" />
   <BaseButton @onClick="insertCount">insert</BaseButton>
+
+  <CompositionLesson />
+  <CompositionLesson2 />
 </template>
 
 <script>
 import TheHeader from './components/TheHeader.vue'
 import BaseButton from './components/BaseButton.vue'
 import NumberInput from './components/NumberInput.vue'
+import CompositionLesson from './components/CompositionLesson.vue'
+import CompositionLesson2 from './components/CompositionLesson2.vue'
 
 export default {
   components: {
     TheHeader,
     BaseButton,
-    NumberInput
+    NumberInput,
+    CompositionLesson,
+    CompositionLesson2,
   },
   data() {
     return {
