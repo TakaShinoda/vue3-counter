@@ -16,6 +16,7 @@
   <CompositionLesson />
   <CompositionLesson2 />
   <CompositionLesson3 />
+  <CompositionLesson4 />
 </template>
 
 <script>
@@ -25,6 +26,7 @@ import NumberInput from './components/NumberInput.vue'
 import CompositionLesson from './components/CompositionLesson.vue'
 import CompositionLesson2 from './components/CompositionLesson2.vue'
 import CompositionLesson3 from './components/CompositionLesson3.vue'
+import CompositionLesson4 from './components/CompositionLesson4.vue'
 
 export default {
   components: {
@@ -34,6 +36,7 @@ export default {
     CompositionLesson,
     CompositionLesson2,
     CompositionLesson3,
+    CompositionLesson4,
   },
   data() {
     return {
