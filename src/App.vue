@@ -1,22 +1,31 @@
 <template>
-  <TheHeader :text="Math.floor(Math.random() * 10) % 2 === 0 ? 'even' : 'odd'" />
+  <!-- <TheHeader :text="Math.floor(Math.random() * 10) % 2 === 0 ? 'even' : 'odd'" />
   <div v-if="!validationMessageList.length">{{ count }}</div>
   <div v-else v-for="message in validationMessageList" :key="message">
     {{ message }}
   </div>
   <BaseButton :disabled="hasMaxCount" @onClick="plusOne">+</BaseButton>
   <BaseButton :disabled="hasMinCount" @onClick="minusOne">-</BaseButton>
-  <br />
+  <br /> -->
   <!-- <input v-model="inputCount" type="number" /> -->
 
   <!-- カスタム修飾子 -->
-  <NumberInput v-model.numberOnly="inputCount" />
-  <BaseButton @onClick="insertCount">insert</BaseButton>
+  <!-- <NumberInput v-model.numberOnly="inputCount" />
+  <BaseButton @onClick="insertCount">insert</BaseButton> -->
 
-  <CompositionLesson />
+  <!-- composition API -->
+  <!-- <CompositionLesson />
   <CompositionLesson2 />
   <CompositionLesson3 />
-  <CompositionLesson4 />
+  <CompositionLesson4 /> -->
+
+  <!-- ライフサイクル -->
+  <BeforeMount />
+  <Mounted />
+  <BeforeUpdate />
+  <button @click="toggleShow">toggle</button>
+  <BeforeUnmount v-if="isShow"/>
+  <TrackedAndTriggered />
 </template>
 
 <script>
@@ -27,6 +36,11 @@ import CompositionLesson from './components/CompositionLesson.vue'
 import CompositionLesson2 from './components/CompositionLesson2.vue'
 import CompositionLesson3 from './components/CompositionLesson3.vue'
 import CompositionLesson4 from './components/CompositionLesson4.vue'
+import BeforeMount from './components/lifecycle/BeforeMount.vue'
+import Mounted from './components/lifecycle/Mounted.vue'
+import BeforeUpdate from './components/lifecycle/BeforeUpdate.vue'
+import BeforeUnmount from './components/lifecycle/BeforeUnmount.vue'
+import TrackedAndTriggered from './components/lifecycle/TrackedAndTriggered.vue'
 
 export default {
   components: {
@@ -37,12 +51,18 @@ export default {
     CompositionLesson2,
     CompositionLesson3,
     CompositionLesson4,
+    BeforeMount,
+    Mounted,
+    BeforeUpdate,
+    BeforeUnmount,
+    TrackedAndTriggered,
   },
   data() {
     return {
       count: 0,
       inputCount: 0,
-      isEditing: false
+      isEditing: false,
+      isShow: false
     }
   },
   watch: {
@@ -97,6 +117,9 @@ export default {
       // v-modelでemitで受け取った値を使っている
       this.count = this.inputCount
       this.isEditing = false
+    },
+    toggleShow() {
+      this.isShow = !this.isShow
     }
   }
 }
