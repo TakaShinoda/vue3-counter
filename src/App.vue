@@ -26,6 +26,9 @@
   <button @click="toggleShow">toggle</button>
   <BeforeUnmount v-if="isShow"/>
   <TrackedAndTriggered />
+
+  <!-- inject / provide -->
+  <UserDetail />
 </template>
 
 <script>
@@ -41,6 +44,9 @@ import Mounted from './components/lifecycle/Mounted.vue'
 import BeforeUpdate from './components/lifecycle/BeforeUpdate.vue'
 import BeforeUnmount from './components/lifecycle/BeforeUnmount.vue'
 import TrackedAndTriggered from './components/lifecycle/TrackedAndTriggered.vue'
+import UserDetail from './components/UserDetail.vue' 
+
+import { provide } from 'vue'
 
 export default {
   components: {
@@ -56,6 +62,19 @@ export default {
     BeforeUpdate,
     BeforeUnmount,
     TrackedAndTriggered,
+    UserDetail,
+  },
+  setup() {
+    const key = 'unique' // ユニークなキーを作る
+    const user = {
+      firstName: 'Evan',
+      lastName: 'You'
+    }
+    provide(key, user)
+
+    return {
+      key
+    }
   },
   data() {
     return {
